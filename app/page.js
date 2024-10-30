@@ -1,9 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Header from "./components/Header";
+import Sobre from "./components/Sobre";
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
   const handleMouseMove = (event) => {
     setMousePos({ x: event.clientX, y: event.clientY });
@@ -11,26 +15,46 @@ export default function Home() {
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
-    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: .1, // Ajusta o percentual de visibilidade necessário
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref]);
+
   const gradientStyle = {
-    background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.1))`,
-    height: '100vh',
-    width: '100vw',
-    position: 'fixed',
-    zIndex: '-1'
+    background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, #334155, transparent 80%)`,
   };
 
   return (
-    <div style={gradientStyle}>
-      <h1>Move o mouse para ver o degradê!</h1>
-      {/* Adicione conteúdo extra aqui */}
-      <div style={{ height: '400vh', paddingTop: '20px' }}>
-        <p>Role para baixo para ver o efeito do degradê ao longo da página.</p>
+    <div className="">
+      <div
+        style={gradientStyle}
+        className="-z-30 fixed inset-0 bg-slate-700 h-[100vh] w-full flex justify-around"
+      ></div>
+      <Header lingua={"pt-br"} sobreVisible={isVisible} />
+      <div className="flex flex-col justify-center items-end">
+        <Sobre ref={ref} />
+        <div className="relative h-[100vh] w-full "></div>
       </div>
     </div>
   );
