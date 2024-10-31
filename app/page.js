@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Sobre from "./components/Sobre";
+import CardInfos from "./components/CardsInfos";
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -54,7 +55,7 @@ export default function Home() {
       <Header lingua={"pt-br"} sobreVisible={isVisible} />
       <div className="flex flex-col justify-center items-end">
         <Sobre ref={ref} />
-        <div className="relative h-[100vh] w-full "></div>
+        <CardInfos />
       </div>
     </div>
   );

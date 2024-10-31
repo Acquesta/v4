@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 function Header({ lingua, sobreVisible }) {
 
     console.log(sobreVisible);
 
+    const [hover, setHover] = useState(false)
+
     return ( 
-        <div className="fixed top-10 left-32 flex flex-col justify-between mx-auto py-20 w-1/3 h-[100vh]">
+        <div className="z-30 fixed top-10 left-32 flex flex-col justify-between mx-auto py-20 w-1/3 h-[100vh]">
             <div>
                 <h1 className="text-slate-300 text-4xl font-bold">Lorenzo Adinolfi Acquesta</h1>
                 <h2 className="text-slate-200 text-xl my-4">Engenheiro de software</h2>
@@ -11,21 +15,23 @@ function Header({ lingua, sobreVisible }) {
             </div>
             <div>
                 <ul>
-                    <li className={`w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-1/2 transition-all ${sobreVisible ? 'text-slate-300 w-full ' : ''}`} >
+                    <li className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${sobreVisible ? 'text-slate-100 w-full' : ''}`} >
                         <div className="bg-slate-300 w-1/6 h-[1px]"></div>
                         <p>Sobre</p>
                     </li>
-                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-1/2 transition-all">
+                    <li onMouseOver={() => {
+                        // setHover(true)
+                    }} className={`w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${hover ? 'text-slate-100 w-full' : ''}`}>
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Experiência</p>
                     </li>
                     
-                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-1/2 transition-all">
+                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all">
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Projetos</p>
                     </li>
                     
-                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-1/2 transition-all">
+                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all">
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Contato</p>
                     </li>
