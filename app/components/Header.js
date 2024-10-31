@@ -1,10 +1,8 @@
 import { useState } from "react";
 
-function Header({ lingua, sobreVisible }) {
+function Header({ lingua, isVisible }) {
 
-    console.log(sobreVisible);
-
-    const [hover, setHover] = useState(false)
+    console.log(isVisible);
 
     return ( 
         <div className="z-30 fixed top-10 left-32 flex flex-col justify-between mx-auto py-20 w-1/3 h-[100vh]">
@@ -14,29 +12,25 @@ function Header({ lingua, sobreVisible }) {
                 <p className="w-1/2 mt-4 text-slate-400 text-lg leading-normal">Desenvolvo projetos online completos, aplicações e designs</p>
             </div>
             <div>
-                <ul>
-                    <li className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${sobreVisible ? 'text-slate-100 w-full' : ''}`} >
+                
+                    <a href="#sobre"  className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${isVisible.sobre ? 'text-slate-100 w-full' : ''}`} >
                         <div className="bg-slate-300 w-1/6 h-[1px]"></div>
                         <p>Sobre</p>
-                    </li>
-                    <li onMouseOver={() => {
-                        // setHover(true)
-                    }} className={`w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${hover ? 'text-slate-100 w-full' : ''}`}>
+                    </a>
+                    <a href="#experiencia" className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${isVisible.cardInfos ? 'text-slate-100 w-full' : ''}`}>
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Experiência</p>
-                    </li>
+                    </a>
                     
-                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all">
+                    <a href="#projetos" className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${isVisible.cardProjetos ? 'text-slate-100 w-full' : ''}`}>
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Projetos</p>
-                    </li>
+                    </a>
                     
-                    <li className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all">
+                    <a href="#contato" className="w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all">
                         <div className="bg-slate-400 w-1/6 h-[1px]" ></div>
                         <p>Contato</p>
-                    </li>
-                    
-                </ul>
+                    </a>
             </div>
             <div>
                 <ul className="flex gap-5">

@@ -1,21 +1,45 @@
-function CardInfos() {
+import Image from "next/image";
+
+function CardInfos({ id, ref, infos, title }) {
+
     return ( 
-        <div className="flex gap-5 w-1/2 mx-10 my-10">
-            <div className="flex hover:bg-slate-700/30 py-5 px-3 rounded-xl cursor-pointer">
-                <div className="w-1/2">
-                    <h4 className="text-slate-500 font-bold">07-2024</h4>
-                </div>
-                <div>
-                    <h4 className="text-teal-400 text-lg font-bold">Titulo</h4>
-                    <p className="text-slate-500 my-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus tincidunt mauris, vitae varius tortor pharetra vitae. Integer eleifend est dui. Nam consequat elit sed commodo aliquet. Etiam dolor elit, rutrum id arcu nec, vehicula hendrerit magna.</p>
-                    <div>
-                        <ul className="flex flex-wrap gap-2">
-                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">JavaScript</li>
-                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">JavaScript</li>
-                        </ul>
+        <div id={id} ref={ref} className="flex flex-col gap-5 w-1/2 mx-10 my-10">
+            <h2 className="text-slate-200 uppercase tracking-wider mt-10">{title}</h2>
+            {
+                infos.map(info => (
+                    <div className={`flex flex-col justify-center hover:bg-slate-700/30 py-5 px-3 rounded-xl cursor-pointer shadow-xl`}>
+                        {
+                            info.image && 
+                                <div className="w-3/4">
+                                    <Image 
+                                        src='/projeto.jpg'
+                                        layout="responsive"
+                                        className="mb-5 rounded-xl"
+                                        width='0'
+                                        height='0'    
+                                    ></Image> 
+                                </div>
+                        }
+                        <div className="w-1/2">
+                            <h4 className="text-slate-500 font-bold">{info.date}</h4>
+                        </div>
+                        <div className="">
+                            <h4 className="text-teal-400 text-lg font-bold">{info.title}</h4>
+                            <p className="text-slate-500 my-3">{info.description}</p>
+                            <div>
+                                <ul className="flex flex-wrap gap-2">
+                                    {
+                                        info.skills.map(skill => (
+                                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">{skill}</li>
+                                        ))
+                                    }
+                                    
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                ))
+            }
         </div>
      );
 }
