@@ -25,8 +25,9 @@ function Header({ lingua, isVisible }) {
                     <div className="w-6 h-[1px] bg-slate-300"></div>
                 </div>
 
-                <div className={`${hamburguer ? 'block' : 'hidden'} absolute top-14 `}>
-                    <a href="#sobre"  className={`z-30 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.sobre ? 'text-slate-100 w-full' : ''}`} >
+                <div className={`${hamburguer ? 'opacity-100' : 'opacity-0'} absolute top-14 bg-slate-700 py-3 px-3 rounded-md transition-all`}>
+                    <div className="relative -top-4 w-4 h-4 bg-slate-700 mx-auto rotate-45" ></div>
+                    <a href="#sobre"  className={`z-30 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.sobre ? 'text-slate-100 w-full' : ''}`} >
                         <p  className="mx-auto">Sobre</p>
                     </a>
                     <a href="#experiencia" className={`z-30  mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.cardInfos ? 'text-slate-100 w-full' : ''}`}>
