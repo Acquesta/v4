@@ -183,10 +183,10 @@ export default function Home() {
   ]
 
   return (
-    <div className="scroll-smooth">
+    <div className="scroll-smooth transition-all">
       <div
         style={gradientStyle}
-        className="-z-30 fixed inset-0 bg-slate-700 h-[100vh] w-full flex justify-around"
+        className="-z-30 hidden lg:fixed inset-0 bg-slate-700 h-[100vh] w-full lg:flex justify-around"
       ></div>
       <Header lingua={"pt-br"} isVisible={isVisible} />
       <div className="flex flex-col justify-center items-end">

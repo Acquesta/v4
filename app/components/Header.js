@@ -4,15 +4,45 @@ function Header({ lingua, isVisible }) {
 
     console.log(isVisible);
 
+    const [ hamburguer, setHamburguer ] = useState(false)
+
+    const handleHamburguer = () => {
+        hamburguer ? setHamburguer(false) : setHamburguer(true)
+        console.log(hamburguer)
+    }
+
     return ( 
-        <div className="z-30 fixed top-10 left-32 flex flex-col justify-between mx-auto py-20 w-1/3 h-[100vh]">
+        <div className="z-30 lg:fixed top-10 left-32 flex flex-col lg:justify-between mx-10 lg:mx-auto py-20 lg:w-1/3 lg:h-[100vh]">
             <div>
                 <h1 className="text-slate-300 text-4xl font-bold">Lorenzo Adinolfi Acquesta</h1>
                 <h2 className="text-slate-200 text-xl my-4">Engenheiro de software</h2>
                 <p className="w-1/2 mt-4 text-slate-400 text-lg leading-normal">Desenvolvo projetos online completos, aplicações e designs</p>
             </div>
-            <div>
-                
+            <div className="lg:hidden fixed top-10 right-0 px-10 flex flex-col justify-center items-center">
+                <div onClick={() => handleHamburguer()} className="flex flex-col gap-2 w-12 h-12 items-center justify-center cursor-pointer bg-slate-700 rounded-full">
+                    <div className="w-6 h-[1px] bg-slate-300"></div>
+                    <div className="w-6 h-[1px] bg-slate-300"></div>
+                    <div className="w-6 h-[1px] bg-slate-300"></div>
+                </div>
+
+                <div className={`${hamburguer ? 'block' : 'hidden'} absolute top-14 `}>
+                    <a href="#sobre"  className={`z-30 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.sobre ? 'text-slate-100 w-full' : ''}`} >
+                        <p  className="mx-auto">Sobre</p>
+                    </a>
+                    <a href="#experiencia" className={`z-30  mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.cardInfos ? 'text-slate-100 w-full' : ''}`}>
+                        <p className="mx-auto">Experiência</p>
+                    </a>
+                    
+                    <a href="#projetos" className={`z-30  mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.cardProjetos ? 'text-slate-100 w-full' : ''}`}>
+                        <p className="mx-auto">Projetos</p>
+                    </a>
+                    
+                    <a href="#contato" className=" mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all">
+                        <p className="mx-auto">Contato</p>
+                    </a>
+                </div>
+            </div>
+            <div className="hidden lg:block">
                     <a href="#sobre"  className={`z-30 w-1/3 mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer hover:text-slate-300 hover:w-full transition-all ${isVisible.sobre ? 'text-slate-100 w-full' : ''}`} >
                         <div className="bg-slate-300 w-1/6 h-[1px]"></div>
                         <p>Sobre</p>
@@ -33,7 +63,7 @@ function Header({ lingua, isVisible }) {
                     </a>
             </div>
             <div>
-                <ul className="flex gap-5">
+                <ul className="flex gap-5 mt-5">
                     <li className="cursor-pointer">
                         <a>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#cbd5e1" className="h-6 w-6" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
