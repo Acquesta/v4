@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "title": "Portal de Filmes",
+        "description": "Uma plataforma de filmes online com recomendações, categorias de filmes, marcar para assistir depois ou que já assistiu. Para a base de dados usei a API the movie database",
+        "image": "https://raw.githubusercontent.com/Acquesta/Portal-filmes/main/ImagemPag2.png",
+        "skills": ["JAVASCRIPT", "REACT", "TAILWIND"],
+        "link": "portal-filmes-rosy.vercel.app/"
+    },
+    {
+        "id": 0,
+        "title": "Portal de Filmes",
+        "description": "Uma plataforma de filmes online com recomendações, categorias de filmes, marcar para assistir depois ou que já assistiu. Para a base de dados usei a API the movie database",
+        "image": "https://raw.githubusercontent.com/Acquesta/Portal-filmes/main/ImagemPag2.png",
+        "skills": ["JAVASCRIPT", "REACT", "TAILWIND"],
+        "link": "portal-filmes-rosy.vercel.app/"
+    },
+    {
+        "id": 0,
+        "title": "Portal de Filmes",
+        "description": "Uma plataforma de filmes online com recomendações, categorias de filmes, marcar para assistir depois ou que já assistiu. Para a base de dados usei a API the movie database",
+        "image": "https://raw.githubusercontent.com/Acquesta/Portal-filmes/main/ImagemPag2.png",
+        "skills": ["JAVASCRIPT", "REACT", "TAILWIND"],
+        "link": "portal-filmes-rosy.vercel.app/"
+    }
+]

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function CardsProjects( { infos, id, ref, title } ) {
 
     return ( 
@@ -7,29 +9,28 @@ function CardsProjects( { infos, id, ref, title } ) {
                 infos?.map(info => (
                     <div className={`flex lg:flex-col max-md:flex-col justify-center gap-2 hover:bg-slate-700/30 py-5 px-3 rounded-xl cursor-pointer shadow-xl`}>
                         {
-                            info.image && 
+                            info.imagem && 
                                 <div className="w-3/4 max-sm:w-full max-sm:mx-auto">
-                                    <Image 
-                                        src='/projeto.jpg'
+                                    <img 
+                                        src={`${info.imagem}`}
                                         layout="responsive"
-                                        className="mb-5 rounded-xl"
-                                        width='0'
-                                        height='0'    
-                                    ></Image> 
+                                        className="w-auto mb-5 rounded-xl"
+                                    /> 
                                 </div>
                         }
                         <div className="w-1/2">
                             <h4 className="text-slate-500 font-bold text-center lg:text-start max-md:text-start">{info.date}</h4>
                         </div>
                         <div className="">
-                            <h4 className="text-teal-400 text-lg font-bold">{info.name}</h4>
-                            <p className="text-slate-500 my-3">{info.description}</p>
+                            <h4 className="text-teal-400 text-lg font-bold">{info.nome}</h4>
+                            <p className="text-slate-500 my-3">{info.descricao}</p>
                             <div>
                                 <ul className="flex flex-wrap gap-2">
-                                
-                                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">{info.language}</li>
-                                        
-                                    
+                                    {
+                                        info.linguagens.map(linguagem => (
+                                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">{linguagem}</li>                                    
+                                        ))
+                                    }
                                 </ul>
                             </div>
                         </div>

@@ -4,9 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import Header from "./components/Header";
 import Sobre from "./components/Sobre";
 import CardInfos from "./components/CardsInfos";
-import CardsProjects from "./components/CardsProjects";
+
+import projetos from './data/projects.json'
+import experiencias from './data/experiencias.json'
 
 export default function Home() {
+  // console.log(projetos);
+  const [darkMode, setDarkMode] = useState(false)
+  
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({
     sobre: false,
@@ -87,51 +92,27 @@ export default function Home() {
   }, [refCardProjetos]);
 
   const gradientStyle = {
-    background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, #334155, transparent 80%)`,
+    background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, ${darkMode ? '#334155, #0f172a' : '#93c5fd, #bfdbfe'})`,
   };
 
-  const experiencias = [
-    {
-      date: '07-2024 | atualmente',
-      title: 'Estagiario de TI | FIAP',
-      description: 'Neste trabalho eu monitoro as salas de aulas da FIAP auxiliando os professores e alunos com a infraestrutura da faculdade, estou desenvolvendo vários aspectos como comunicação apresentando projetos da FIAP, manipulação de computadores em rede e computadores virtuais',
-      skills: [
-        'Comunicação', 'Redes', 'VM', 'CMD'
-      ]
-    },
-    {
-      date: '01-2024 | 07-2024',
-      title: 'Jovem Aprendiz | Beneficiência Portuguesa',
-      description: 'Neste trabalho eu conferia autorizações de de convênios para exames, a principal característica que desenvolvi foi a comunicação e entender como varios setores dentro da empresa funcionam',
-      skills: [
-        'Comunicação', 'Estrutura de empresas', 'Contabilidade', 'Comportamentos'
-      ]
-    },
-  ]
+  // console.log(repos);
 
-  const [repos, setRepos] = useState([]);
-
-  useEffect(() => {
-    fetch('https://api.github.com/users/acquesta/repos')
-      .then((response) => response.json())
-      .then((data) => setRepos(data))
-      .catch((error) => console.error('Erro ao buscar repositórios:', error));
-  }, []);
-
-  console.log(repos);
+  const changeDarkMode = () => {
+    darkMode ? setDarkMode(false) : setDarkMode(true)   
+    console.log(darkMode);
+  }
   
-
   return (
-    <div className="scroll-smooth transition-all">
+    <div className={`scroll-smooth transition-all ${darkMode ? 'bg-[#0f172a]' : 'bg-[#bfdbfe]'} lg:bg-transparent`}>
       <div
         style={gradientStyle}
-        className="-z-30 hidden lg:fixed inset-0 bg-slate-700 h-[100vh] w-full lg:flex justify-around"
+        className={`-z-30 hidden lg:fixed inset-0 bg-blue-200 h-[100vh] w-full lg:flex justify-around transition-all`}
       ></div>
-      <Header lingua={"pt-br"} isVisible={isVisible} />
+      <Header changeDarkMode={changeDarkMode} darkMode={darkMode} lingua={"pt-br"} isVisible={isVisible} />
       <div className="flex flex-col justify-center items-end">
-        <Sobre ref={refSobre} />
-        <CardInfos id='experiencia' ref={refCardInfos} infos={experiencias} title='Experiência'/>
-        <CardsProjects id='projetos' ref={refCardProjetos} infos={repos} title='Projetos'/>
+        <Sobre darkMode={darkMode} ref={refSobre} />
+        <CardInfos darkMode={darkMode} id='experiencia' ref={refCardInfos} infos={experiencias} title='Experiência'/>
+        <CardInfos id='projetos' ref={refCardProjetos} infos={projetos} title='Projetos'/>
       </div>
     </div>
   );
