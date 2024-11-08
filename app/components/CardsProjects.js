@@ -1,6 +1,4 @@
-import Image from "next/image";
-
-function CardInfos({ id, ref, infos, title }) {
+function CardsProjects( { infos, id, ref, title } ) {
 
     return ( 
         <div id={id} ref={ref} className="flex flex-col gap-5 lg:w-1/2 mx-10 my-10">
@@ -24,15 +22,13 @@ function CardInfos({ id, ref, infos, title }) {
                             <h4 className="text-slate-500 font-bold text-center lg:text-start max-md:text-start">{info.date}</h4>
                         </div>
                         <div className="">
-                            <h4 className="text-teal-400 text-lg font-bold">{info.title}</h4>
+                            <h4 className="text-teal-400 text-lg font-bold">{info.name}</h4>
                             <p className="text-slate-500 my-3">{info.description}</p>
                             <div>
                                 <ul className="flex flex-wrap gap-2">
-                                    {
-                                        info.skills.map(skill => (
-                                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">{skill}</li>
-                                        ))
-                                    }
+                                
+                                            <li className="bg-teal-400/10 text-teal-300 px-4 py-1 rounded-full">{info.language}</li>
+                                        
                                     
                                 </ul>
                             </div>
@@ -44,4 +40,4 @@ function CardInfos({ id, ref, infos, title }) {
      );
 }
 
-export default CardInfos;
+export default CardsProjects;

@@ -8,7 +8,6 @@ function Header({ lingua, isVisible }) {
 
     const handleHamburguer = () => {
         hamburguer ? setHamburguer(false) : setHamburguer(true)
-        console.log(hamburguer)
     }
 
     return ( 
