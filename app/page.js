@@ -10,7 +10,7 @@ import experiencias from './data/experiencias.json'
 
 export default function Home() {
   // console.log(projetos);
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({
@@ -112,7 +112,7 @@ export default function Home() {
       <div className="flex flex-col justify-center items-end">
         <Sobre darkMode={darkMode} ref={refSobre} />
         <CardInfos darkMode={darkMode} id='experiencia' ref={refCardInfos} infos={experiencias} title='Experiência'/>
-        <CardInfos id='projetos' ref={refCardProjetos} infos={projetos} title='Projetos'/>
+        <CardInfos darkMode={darkMode} id='projetos' ref={refCardProjetos} infos={projetos} title='Projetos'/>
       </div>
     </div>
   );

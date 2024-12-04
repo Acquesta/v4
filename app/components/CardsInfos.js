@@ -28,7 +28,7 @@ function CardInfos({ darkMode, id, ref, infos, title }) {
                                 <ul className="flex flex-wrap gap-2">
                                     {
                                         info.skills.map(skill => (
-                                            <li className={`bg-teal-400/10 ${darkMode ? 'text-teal-300 bg-teal-400/10' : 'text-sky-900 bg-sky-900/10'} text-teal-300 px-4 py-1 rounded-full`}>{skill}</li>
+                                            <li key={skill} className={` ${darkMode ? 'text-teal-300 bg-teal-400/10' : 'text-sky-900 bg-sky-900/10 '} px-4 py-1 rounded-full`}>{skill}</li>
                                         ))
                                     }
                                     

@@ -8,19 +8,19 @@
         "link": "portal-filmes-rosy.vercel.app/"
     },
     {
-        "id": 0,
-        "title": "Portal de Filmes",
-        "description": "Uma plataforma de filmes online com recomendações, categorias de filmes, marcar para assistir depois ou que já assistiu. Para a base de dados usei a API the movie database",
-        "image": "https://raw.githubusercontent.com/Acquesta/Portal-filmes/main/ImagemPag2.png",
-        "skills": ["JAVASCRIPT", "REACT", "TAILWIND"],
-        "link": "portal-filmes-rosy.vercel.app/"
+        "id": 1,
+        "title": "GreenTrack",
+        "description": "Este é um site com um dashboard para ajudar na visualização e produção do hidrogênio verde com visualizações em tempo real, analise de dados tabelas para exportar e aviso de manutenção. Foi desenvolvido para impulsionar a criação e tornar um jeito melhor de armazenar o hidrogênio verde.",
+        "image": "https://raw.githubusercontent.com/Acquesta/greenTrack/refs/heads/main/ImagePag.png",
+        "skills": ["JAVASCRIPT", "REACT", "TAILWIND", "MOCKAPI"],
+        "link": "https://green-track-rho.vercel.app/"
     },
     {
         "id": 0,
-        "title": "Portal de Filmes",
-        "description": "Uma plataforma de filmes online com recomendações, categorias de filmes, marcar para assistir depois ou que já assistiu. Para a base de dados usei a API the movie database",
-        "image": "https://raw.githubusercontent.com/Acquesta/Portal-filmes/main/ImagemPag2.png",
-        "skills": ["JAVASCRIPT", "REACT", "TAILWIND"],
-        "link": "portal-filmes-rosy.vercel.app/"
+        "title": "Connect-e",
+        "description": "Um projeto a fim de popularizar a formula-e, neste projeto são varios quizzes que somam pontos, uma comunidade podendo adicionar varios amigos e rankear todos eles, e uma sistema de recompensa de pontos dentro da plataforma",
+        "image": "https://github.com/Acquesta/connect-e/raw/main/ImagePag.png",
+        "skills": ["JAVASCRIPT", "REACT", "TAILWIND", "VITE", "LOCALSTORAGE"],
+        "link": "https://connect-e.vercel.app/"
     }
 ]
