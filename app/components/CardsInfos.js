@@ -1,13 +1,15 @@
-import Image from "next/image";
+import { useState } from "react";
 
 function CardInfos({ darkMode, id, ref, infos, title }) {
 
+    const [ mostraLista, setMostraLista ] = useState(3)
+
     return ( 
-        <div id={id} ref={ref} className="flex flex-col gap-5 lg:w-1/2 mx-10 my-10">
+        <div key={id} id={id} ref={ref} className="flex flex-col gap-5 lg:w-1/2 mx-10 my-10">
             <h2 className={`${darkMode ? 'text-slate-200' : 'text-sky-900'} uppercase tracking-wider mt-10`}>{title}</h2>
             {
-                infos?.map(info => (
-                    <div className={`flex lg:flex-col max-md:flex-col justify-center gap-2 hover:bg-slate-700/30 py-5 px-3 rounded-xl cursor-pointer shadow-xl`}>
+                infos?.map((info, index) => index < mostraLista && (
+                    <div key={info.id} className={`flex lg:flex-col max-md:flex-col justify-center gap-2 hover:bg-slate-700/30 py-5 px-3 rounded-xl cursor-pointer shadow-xl`}>
                         {
                             info.image && 
                                 <div className="w-3/4 max-sm:w-full max-sm:mx-auto">
@@ -31,12 +33,16 @@ function CardInfos({ darkMode, id, ref, infos, title }) {
                                             <li key={skill} className={` ${darkMode ? 'text-teal-300 bg-teal-400/10' : 'text-sky-900 bg-sky-900/10 '} px-4 py-1 rounded-full`}>{skill}</li>
                                         ))
                                     }
-                                    
                                 </ul>
                             </div>
                         </div>
                     </div>
                 ))
+            }
+            {
+                infos.length > mostraLista ? 
+                <p onClick={() => setMostraLista(mostraLista + 3)} className={`w-full text-center ${darkMode ? 'text-slate-200' : 'text-indigo-950'} cursor-pointer`}>Ver mais</p> :
+                infos.length > 3 && <p onClick={() => setMostraLista(mostraLista - 3)} className={`w-full text-center ${darkMode ? 'text-slate-200' : 'text-indigo-950'} cursor-pointer`}>Mostrar menos</p> 
             }
         </div>
      );
