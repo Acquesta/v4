@@ -54,10 +54,6 @@ function Header({ changeDarkMode, darkMode, lingua, isVisible }) {
                     <a href="#projetos" className={`z-30  mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all ${isVisible.cardProjetos ? 'text-slate-100 w-full' : ''}`}>
                         <p className={`mx-auto`}>Projetos</p>
                     </a>
-                    
-                    <a href="#contato" className=" mt-4 flex items-center gap-2 uppercase font-bold text-xs text-slate-400 cursor-pointer transition-all">
-                        <p className={`mx-auto`}>Contato</p>
-                    </a>
                 </div>
             </div>
             <div className="hidden lg:block">
