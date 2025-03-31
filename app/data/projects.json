@@ -22,13 +22,5 @@
         "image": "https://github.com/Acquesta/connect-e/raw/main/ImagePag.png",
         "skills": ["JAVASCRIPT", "REACT", "TAILWIND", "VITE", "LOCALSTORAGE"],
         "link": "https://connect-e.vercel.app/"
-    },
-    {
-        "id": 3,
-        "title": "Connect-e",
-        "description": "Um projeto a fim de popularizar a formula-e, neste projeto são varios quizzes que somam pontos, uma comunidade podendo adicionar varios amigos e rankear todos eles, e uma sistema de recompensa de pontos dentro da plataforma",
-        "image": "https://github.com/Acquesta/connect-e/raw/main/ImagePag.png",
-        "skills": ["JAVASCRIPT", "REACT", "TAILWIND", "VITE", "LOCALSTORAGE"],
-        "link": "https://connect-e.vercel.app/"
     }
 ]

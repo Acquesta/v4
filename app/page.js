@@ -16,7 +16,7 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState({
     sobre: false,
     cardInfos: false,
-    cardProjetos: false
+    cardProjetos: true
   });
 
   const refSobre = useRef(null);
@@ -77,7 +77,7 @@ export default function Home() {
       ([entry]) => {
         setIsVisible((prev) => ({ ...prev, cardProjetos: entry.isIntersecting }));
       },
-      { threshold: .5 }
+      { threshold: 0.2 }
     );
 
     if (refCardProjetos.current) {
